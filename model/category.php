@@ -29,7 +29,7 @@ function find_all_categories(): array
         //1 Se connecter à la BDD
         $bdd = connect();
         //2 Ecrire la requête SQL
-        $sql = "SELECT c.id, c.category_name FROM category AS c ORDER BY c.category_name ASC";
+        $sql = "SELECT c.id, c.category_name AS name FROM category AS c ORDER BY c.category_name ASC";
         //3 Préparer la requête
         $req = $bdd->prepare($sql);
         //4 Exécuter la requête

@@ -44,5 +44,6 @@ function create_category(array $category)
         <input type="submit" value="Ajouter" name="add_category">
     </form>
     <p><?= $result ?? "" ?></p>
+    <a href="/template/show_all_categories.php">Liste des categories</a>
 </body>
 </html>
