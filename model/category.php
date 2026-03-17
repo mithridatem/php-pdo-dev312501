@@ -1,7 +1,7 @@
 <?php
 
 //Import de la connexion à la BDD
-include 'database.php';
+include '../database.php';
 
 //Méthode pour ajouter une category ($_POST)
 function add_category(array $category): void
@@ -64,6 +64,6 @@ function is_category_exists(string $name): bool
     } catch(PDOException $e) {
         echo "Erreur récupération impossible";
     }
-    
+
     return true;
 }
