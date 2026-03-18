@@ -27,3 +27,6 @@ ALTER TABLE article
 ADD CONSTRAINT fk_completed_category
 FOREIGN KEY(category_id)
 REFERENCES category(id);
+
+ALTER TABLE `account`
+ADD COLUMN image VARCHAR(255);
