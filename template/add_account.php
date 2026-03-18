@@ -24,11 +24,15 @@ function create_account(array $account): string
     ) {
         return "Les champs ne sont pas tous remplis"; 
     }
-       
+ 
     //3 Tester si le compte existe déja
     if (is_account_exists($account["email"])) {
         return "Le compte : " . $account["email"] . " existe déja";
     }
+    
+    //Ajout de l'entrée image par default 
+    $account["image"] = "default.png";
+    
     //test si l'image existe
     if (isset($_FILES["image"]) && $_FILES["image"]["tmp_name"] !="") {
         //ajouter la colonne image (account)
@@ -38,11 +42,7 @@ function create_account(array $account): string
         //déplacer le fichier
         move_uploaded_file($tmp, "../public/image/" . $account["image"]);
     } 
-    //sinon une image par défault
-    else {
-        $account["image"] = "default.png";
-    }
- 
+  
     $account["password"] = password_hash($account["password"], PASSWORD_DEFAULT);
     //4 ajouter le compte en BDD
     add_account($account);
